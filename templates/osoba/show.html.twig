@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Osoba{% endblock %}
+
+{% block body %}
+    <h1>Osoba</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ osoba.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ osoba.name }}</td>
+            </tr>
+            <tr>
+                <th>Wiek</th>
+                <td>{{ osoba.wiek }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ osoba.date ? osoba.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('osoba_index') }}">back to list</a>
+
+    <a href="{{ path('osoba_edit', {'id': osoba.id}) }}">edit</a>
+
+    {{ include('osoba/_delete_form.html.twig') }}
+{% endblock %}
